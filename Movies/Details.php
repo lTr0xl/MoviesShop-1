@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title><?php echo htmlspecialchars($movie['Title']); ?> - Movie Details</title>
+    <title><?php echo htmlspecialchars($movie['Title']); ?> - Movie Detailss</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,20 +27,20 @@
             float: left;
             margin-right: 20px;
         }
-        .movie-details {
+        .movie-detailss {
             overflow: hidden;
         }
-        .movie-details h2 {
+        .movie-detailss h2 {
             margin-top: 0;
         }
-        .movie-details p {
+        .movie-detailss p {
             margin: 5px 0;
         }
-        .movie-details ul {
+        .movie-detailss ul {
             list-style-type: none;
             padding: 0;
         }
-        .movie-details ul li {
+        .movie-detailss ul li {
             margin-bottom: 5px;
         }
         .clear {
@@ -95,35 +95,31 @@
 </nav>
 
   <div class="container" style="margin-top: 40px;">
-  <?php foreach($details as $detail) : ?>
-        <?php if ($detail['MovieID'] == $id) : ?>
-            <img class="movie-poster" src="<?php echo $detail['MovieImageUrl']; ?>" alt="<?php echo $detail['Title']; ?>">
-            <h2><?php echo $detail['Title']; ?></h2>
-            <p><strong>Description: </strong> <?php echo $detail['Description']; ?></p>
-            <p><strong>Duration:</strong> <?php echo $detail['Duration']; ?> minutes</p>
-            <p><strong>Creative Director:</strong> <?php echo $director_name ?></p>
-            <p><strong>Genres: </strong>
-            <?php foreach($genres as $genre) : ?>
-                <?php echo $genre['Name'] ?>
-            <?php endforeach; ?>
-            </p>
-            <p><strong>Actors: </strong>
-                <?php foreach($actors as $actor) : ?>
-                    <?php echo $actor['FullName'] ?>
-                <?php endforeach; ?>
-            </p>
-            <p><strong>Price:</strong> <?php echo $detail['Price'] ?> $</p>
-            <form action="." method="post">
-                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="../Movies" class="text-decoration-none">Go Back</a></button>
-                    <input type="hidden" name="action"
-                           value="delete" />
-                    <input type="hidden" name="movie_id"
-                           value="<?php echo $detail['MovieID']; ?>" />
-                    <input class="btn btn-sm btn-outline-secondary" type="submit" value="Delete" />
-                    
-            </form>  
-        <?php endif; ?>
-      <?php endforeach; ?>
+    <img class="movie-poster" src="<?php echo $details['MovieImageUrl']; ?>" alt="<?php echo $details['Title']; ?>">
+    <h2><?php echo $details['Title']; ?></h2>
+    <p><strong>Description: </strong> <?php echo $details['Description']; ?></p>
+    <p><strong>Duration:</strong> <?php echo $details['Duration']; ?> minutes</p>
+    <p><strong>Creative Director:</strong> <?php echo $director_name ?></p>
+    <p><strong>Genres: </strong>
+    <?php foreach($genres as $genre) : ?>
+        <?php echo $genre['Name'] ?>
+    <?php endforeach; ?>
+    </p>
+    <p><strong>Actors: </strong>
+        <?php foreach($actors as $actor) : ?>
+            <?php echo $actor['FullName'] ?>
+        <?php endforeach; ?>
+    </p>
+    <p><strong>Price:</strong> <?php echo $details['Price'] ?> $</p>
+    <form action="." method="post">
+        <button type="button" class="btn btn-sm btn-outline-secondary"><a href="../Movies" class="text-decoration-none">Go Back</a></button>
+            <input type="hidden" name="action"
+                    value="delete" />
+            <input type="hidden" name="movie_id"
+                    value="<?php echo $details['MovieID']; ?>" />
+            <input class="btn btn-sm btn-outline-secondary" type="submit" value="Delete" />
+            
+    </form>
   </div>  
 
 <!-- Bootstrap JS (Popper.js is included with Bootstrap 5) -->

@@ -20,7 +20,8 @@
             GROUP BY movies.MovieID, creativedirectors.FullName
             ORDER BY movies.MovieID";
         $result = $db->query($query);
-        return $result;
+        $details = $result->fetch();
+        return $details;
     }
     // function getAllMovieDetailsById($movieId) {
     //     global $db;
